@@ -3,6 +3,8 @@
     <string name="action_settings">Settings</string>
     <string name="landing_area">Landing area</string>
     <string name="meteors">meteors</string>
+    <string name="g_unit">g</string>
+    <string name="no_internet">Cannot download data. Connect to internet please.</string>
 
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCwMDhcUJ3YLvqrHp4aNznjeJOHLCOnphk</string>
 </resources>

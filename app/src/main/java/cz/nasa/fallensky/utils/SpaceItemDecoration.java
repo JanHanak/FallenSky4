@@ -18,8 +18,8 @@ public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
     @Override
     public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, RecyclerView.State state) {
         RecyclerView.ViewHolder viewHolder = parent.getChildViewHolder(view);
-            outRect.bottom = space / 2;
-            outRect.top = space / 2;
+            outRect.bottom = space;
+            outRect.top = space;
             outRect.left = space;
             outRect.right = space;
     }

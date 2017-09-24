@@ -51,7 +51,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
         Realm realm = Realm.getDefaultInstance();
         Meteorit meteorit = realm.where(Meteorit.class).equalTo("id",id).findFirst();
         meteoritCopy = realm.copyFromRealm(meteorit);
-        setTitle(meteorit.name+" ("+meteorit.mass+"g)");
+        setTitle(meteorit.name+" ("+meteorit.mass+getString(R.string.g_unit)+")");
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(map);
         mapFragment.getMapAsync(this);
     }

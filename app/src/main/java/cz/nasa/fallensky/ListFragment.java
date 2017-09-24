@@ -10,6 +10,7 @@ import android.support.v7.widget.SimpleItemAnimator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.greenrobot.eventbus.EventBus;
@@ -32,6 +33,8 @@ import io.realm.exceptions.RealmException;
  */
 public class ListFragment extends Fragment {
     RecyclerView recyclerView;
+    TextView chip;
+
     SwipeRefreshLayout swipe_container;
     RealmAdapter adapter;
     RealmResults results;
@@ -53,6 +56,7 @@ public class ListFragment extends Fragment {
 
         recyclerView = getView().findViewById(R.id.recyclerView);
         swipe_container = getView().findViewById(R.id.swipe_container);
+        chip = getView().findViewById(R.id.chip);
 
         swipe_container.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -79,12 +83,12 @@ public class ListFragment extends Fragment {
 
             //ugly part
             results = realm.where(Meteorit.class).beginsWith("year","201").not().beginsWith("year","2010").findAllSorted(fieldNames,sort);
-            getActivity().setTitle(getString(R.string.app_name) + " - " + +results.size()+" "+getString(R.string.meteors));
+            chip.setText(results.size()+" "+getString(R.string.meteors));
 
             results.addChangeListener(new RealmChangeListener<RealmResults>() {
                 @Override
                 public void onChange(RealmResults realmResults) {
-                    getActivity().setTitle(getString(R.string.app_name) + " - " + +realmResults.size()+" "+getString(R.string.meteors));
+                    chip.setText(realmResults.size()+" "+getString(R.string.meteors));
                 }
             });
         } catch (RealmException e) {
@@ -96,7 +100,6 @@ public class ListFragment extends Fragment {
         if (animator instanceof SimpleItemAnimator) {
             ((SimpleItemAnimator) animator).setSupportsChangeAnimations(false);
         }
-
         recyclerView.setAdapter(adapter);
 
     }

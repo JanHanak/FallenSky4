@@ -67,16 +67,6 @@ public class DownloadService extends IntentService {
                 try {
                     List<Meteorit> meteorits= LoganSquare.parseList(response.toString(), Meteorit.class);
 
-                    /*meteorit.geolocation = new Geolocation();
-                    try {
-                        Geolocation geolocation= LoganSquare.parse(response.getJSONObject("geolocation").toString(), Geolocation.class);
-                        meteorit.geolocation = geolocation;
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }*/
-
                     Realm realm = Realm.getDefaultInstance();
                     realm.beginTransaction();
                     realm.delete(Meteorit.class);

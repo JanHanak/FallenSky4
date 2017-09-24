@@ -4,4 +4,9 @@
     <dimen name="space_items">8dp</dimen>
     <dimen name="standart_margin">16dp</dimen>
     <dimen name="half_margin">16dp</dimen>
+
+    <dimen name="card_recycler_corner_radius">2dp</dimen>
+    <dimen name="card_recycler_elevation">2dp</dimen>
+    <dimen name="card_title_margin_top">24dp</dimen>
+
 </resources>
