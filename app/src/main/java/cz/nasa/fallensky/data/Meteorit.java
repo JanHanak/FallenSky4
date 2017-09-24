@@ -44,4 +44,9 @@ public class Meteorit extends RealmObject  {
 	public String fall;
 
 
+	public Integer getId() {
+		return this.id;
+	}
+
+
 }

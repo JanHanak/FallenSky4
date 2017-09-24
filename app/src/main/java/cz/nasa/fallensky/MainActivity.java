@@ -10,11 +10,16 @@ import android.support.v7.widget.Toolbar;
 
 import com.google.android.gms.maps.MapView;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import cz.nasa.fallensky.core.DownloadService;
 import cz.nasa.fallensky.utils.Communication;
+import cz.nasa.fallensky.utils.MessageEvent;
 import cz.nasa.fallensky.utils.MyConstants;
 
 public class MainActivity extends AppCompatActivity {
@@ -61,5 +66,27 @@ public class MainActivity extends AppCompatActivity {
                 }catch (Exception ignored){}
             }
         }).start();
+
+        EventBus.getDefault().register(this);
+
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent event) {
+        switch (event.message) {
+            case MyConstants.ERROR:
+                Snackbar snackbar = Snackbar.make(coordinatorLayout, event.body, Snackbar.LENGTH_LONG);
+                snackbar.show();
+                break;
+            default:
+                break;
+        }
+    }
+
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
     }
 }
