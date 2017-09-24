@@ -38,7 +38,6 @@ public class MeteoritViewHolder extends RecyclerView.ViewHolder {
             holder.info.setText(Utilities.outputFormat.format(date.getTime()));
 
             holder.size.setText(holder.mItem.recclass + " - " +holder.mItem.mass + "g");
-
         } catch (Exception e) {
             e.printStackTrace();
         }

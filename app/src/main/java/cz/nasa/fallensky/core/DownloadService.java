@@ -80,9 +80,8 @@ public class DownloadService extends IntentService {
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
                     String currentDateandTime = sdf.format(new Date());
                     SharedPreferences.Editor e = myPrefs.edit();
-                    e.putString(MyConstants.DATA_SAVED, currentDateandTime);
-                    e.commit();
-
+                    e.putString(MyConstants.LAST_SAVED_DATA, currentDateandTime);
+                    e.apply();
                 }  catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -97,8 +96,6 @@ public class DownloadService extends IntentService {
             e.printStackTrace();
         }
     }
-
-
     Response.ErrorListener errorListener = new Response.ErrorListener() {
         @Override
         public void onErrorResponse(@NonNull VolleyError error) {
@@ -119,8 +116,7 @@ public class DownloadService extends IntentService {
             }
         }
     };
-
-
+    
     @Override
     protected void onHandleIntent(Intent intent) {
         Log.d(TAG, "Service Started!");

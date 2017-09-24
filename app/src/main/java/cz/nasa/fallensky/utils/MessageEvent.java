@@ -4,9 +4,6 @@ public class MessageEvent {
     public final String message;
     public String body;
 
-
-
-
     public MessageEvent(String message) {
         this.message = message;
     }

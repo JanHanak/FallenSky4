@@ -29,7 +29,6 @@ public class ListFragment extends Fragment {
     RealmResults results;
     RecyclerView.ItemDecoration dividerItemDecoration;
 
-
     public ListFragment() {
     }
 
@@ -46,8 +45,6 @@ public class ListFragment extends Fragment {
         recyclerView = getView().findViewById(R.id.recyclerView);
         chip = getView().findViewById(R.id.chip);
 
-
-
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
@@ -55,7 +52,6 @@ public class ListFragment extends Fragment {
             dividerItemDecoration = new SpaceItemDecoration(getActivity(),getResources().getDimensionPixelSize(R.dimen.space_items));
             recyclerView.addItemDecoration(dividerItemDecoration);
         }
-
 
         try {
             Realm realm = Realm.getDefaultInstance();
@@ -82,6 +78,5 @@ public class ListFragment extends Fragment {
             ((SimpleItemAnimator) animator).setSupportsChangeAnimations(false);
         }
         recyclerView.setAdapter(adapter);
-
     }
 }

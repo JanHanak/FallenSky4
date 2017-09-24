@@ -42,11 +42,4 @@ public class Meteorit extends RealmObject  {
 
 	@JsonField
 	public String fall;
-
-
-	public Integer getId() {
-		return this.id;
-	}
-
-
 }

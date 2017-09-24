@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
-
         setSupportActionBar(toolbar);
     }
 
@@ -53,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
                 snackbar.show();
             }
         }
-
         //pre inicialization google maps
         new Thread(new Runnable() {
             @Override
@@ -82,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
-
 
     @Override
     public void onStop() {
